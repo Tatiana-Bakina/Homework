@@ -18,7 +18,7 @@ def test_log_success(capsys):
     captured = capsys.readouterr()  # Получаем вывод из stdout и stderr
 
     # Проверяем, что в выводе присутствует фраза "completed successfully.", означающая успешное выполнение
-    assert "completed successfully." in captured.out
+    assert "ok" in captured.out
 
 
 # Тестируем обработку ошибок в функции

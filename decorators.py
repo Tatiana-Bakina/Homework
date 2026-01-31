@@ -19,13 +19,11 @@ def log(filename: Optional[str] = None):
             start_time = time.time()
             try:
                 result = func(*args, **kwargs)
-                message = f"{func.__name__} completed successfully."
+                message = f"{func.__name__} ok"
                 output_message(message, filename)
                 return result
             except Exception as e:
-                error_message = (
-                    f"{func.__name__} raised an exception: " f"type={type(e).__name__}, args={args}, kwargs={kwargs}"
-                )
+                error_message = f"{func.__name__} error: {type(e).__name__}. " f"Inputs: {args}, {kwargs}"
                 output_message(error_message, filename)
                 raise e
             finally:
