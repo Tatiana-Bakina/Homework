@@ -18,7 +18,7 @@ def read_transactions_from_csv(filepath: str) -> list[dict]:
         print(f"Ошибка: Файл {filepath} не является CSV-файлом")
         return []
     try:
-        df = pd.read_csv(filepath)
+        df = pd.read_csv(filepath, delimiter=';')
         if df.empty:
             print(f"Ошибка: Файл {filepath} пустой.")
             return []
