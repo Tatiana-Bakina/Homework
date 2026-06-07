@@ -122,6 +122,17 @@ def format_transaction_for_output(transaction: Dict[str, Any]) -> str:
     from_acc = transaction.get("from")
     to_acc = transaction.get("to")
 
+    # Проверяем, что значение не float NaN и не пустое
+    if from_acc and str(from_acc) != 'nan' and str(from_acc).strip():
+        from_acc = str(from_acc)
+    else:
+        from_acc = None
+
+    if to_acc and str(to_acc) != 'nan' and str(to_acc).strip():
+        to_acc = str(to_acc)
+    else:
+        to_acc = None
+
     if from_acc and to_acc:
         transfer_str = f"{mask_account_card(from_acc)} -> {mask_account_card(to_acc)}"
     elif to_acc:
