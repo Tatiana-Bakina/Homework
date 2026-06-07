@@ -69,7 +69,7 @@ def _convert_currency(amount: float, from_currency: str) -> float:
             # Если API вернуло ошибку, используем фиксированный курс
             return _get_fallback_rate(amount, from_currency)
 
-    except (requests.RequestException, KeyError, ValueError):
+    except Exception:
         # В случае ошибки используем фиксированный курс
         return _get_fallback_rate(amount, from_currency)
 
